@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: guard
+
+server:
+  port: 9090
