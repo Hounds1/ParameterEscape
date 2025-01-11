@@ -2,6 +2,7 @@ package util.injection.guard.integration.domain.request;
 
 import lombok.*;
 import util.injection.guard.core.aspect.annotation.GuardPoint;
+import util.injection.guard.core.aspect.annotation.element.GuardType;
 
 @Getter
 @Setter
@@ -10,10 +11,17 @@ import util.injection.guard.core.aspect.annotation.GuardPoint;
 @Builder
 public class DummyRequestDataParam {
 
-    @GuardPoint
-    private String dummy;
+    @GuardPoint(point = GuardType.GUARD_TYPE_SQL)
+    private String sqlOnly;
 
-    public static DummyRequestDataParam of(String dummy) {
-        return new DummyRequestDataParam(dummy);
+    @GuardPoint(point = GuardType.GUARD_TYPE_HTML)
+    private String htmlOnly;
+
+    @GuardPoint
+    private String defaultDulaGuard;
+
+
+    public static DummyRequestDataParam of(String sqlOnly, String htmlOnly, String defaultDulaGuard) {
+        return new DummyRequestDataParam(sqlOnly, htmlOnly, defaultDulaGuard);
     }
 }

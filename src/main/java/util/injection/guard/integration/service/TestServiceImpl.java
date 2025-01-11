@@ -12,6 +12,8 @@ public class TestServiceImpl implements TestService {
     @Override
     @AnnotatedWithGuard
     public void testInvoke(DummyRequestDataParam param) {
-        log.info(param.getDummy());
+        log.info("SQL type only : {}", param.getSqlOnly());
+        log.info("HTML type only : {}", param.getHtmlOnly());
+        log.info("Dual guard type : {}", param.getDefaultDulaGuard());
     }
 }

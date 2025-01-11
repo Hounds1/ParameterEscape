@@ -17,8 +17,9 @@ public class TestController {
 
     @GetMapping
     public ResponseEntity<String> test() {
-        final String keyword = "<script>test</script>";
-        DummyRequestDataParam dummyRequestDataParam = DummyRequestDataParam.of(keyword);
+        final String exam = "<script>test__%_</script>";
+
+        DummyRequestDataParam dummyRequestDataParam = DummyRequestDataParam.of(exam, exam, exam);
 
         testService.testInvoke(dummyRequestDataParam);
 
